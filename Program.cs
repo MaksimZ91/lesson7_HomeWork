@@ -134,19 +134,17 @@ void printMatrix(int[,] matrix)
     }
 }
 
-double[] average (int[,] matrix)
+double[] average(int[,] matrix)
 {
     double[] average = new double[matrix.GetLength(0)];
     for (int i = 0; i < matrix.GetLength(1); i++)
     {
-        for( int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            average[j] += matrix[i,j];
+            average[j] += matrix[i, j];
+            if (i == matrix.GetLength(1) - 1)
+                average[j] /= average.Length;
         }
-    }
-    for (int k = 0; k < average.Length-1; k++)
-    {
-        average[k] /= average.Length;        
     }
     return average;
 }
